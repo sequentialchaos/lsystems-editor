@@ -1,0 +1,27 @@
+header {
+  position: absolute;
+  width: 100vw;
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  background: #d8d8d8;
+}
+
+h1 {
+  font-size: 1.2em;
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: 1em;
+}
+
+canvas {
+  position: absolute;
+}
+/*# sourceMappingURL=main.css.map */

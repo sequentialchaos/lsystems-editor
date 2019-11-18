@@ -1,0 +1,28 @@
+$primary-color: rgb(216, 216, 216);
+
+body {
+}
+
+header {
+	position: absolute;
+	width: 100vw;
+	height: 5vh;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	z-index: 1;
+
+	background: $primary-color;
+}
+
+h1 {
+	font-size: 1.2em;
+	font-family: 'Courier New', Courier, monospace;
+	margin-left: 1em;
+}
+
+canvas {
+	position: absolute;
+}
