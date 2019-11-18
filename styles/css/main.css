@@ -1,27 +1,58 @@
-header {
-  position: absolute;
-  width: 100vw;
-  height: 5vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  z-index: 1;
-  background: #d8d8d8;
-}
-
-h1 {
-  font-size: 1.2em;
-  font-family: 'Courier New', Courier, monospace;
-  margin-left: 1em;
+body {
+  padding: 0;
+  margin: 0 0 0 10px;
+  overflow: hidden;
 }
 
 canvas {
   position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
 }
+
+.options {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.sidebar {
+  height: 100vh;
+  overflow: auto;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+input::-moz-range-track {
+  background: gray;
+}
+
+input::-webkit-slider-runnable-track {
+  background: gray;
+}
+
+input::-ms-track {
+  background: gray;
+}
+
+input::-moz-range-thumb {
+  border-radius: 0;
+  border: 1px solid black;
+  background: #1c2e2e;
+  width: 1.4vh;
+  height: 1.4vh;
+}
+
+input::-moz-range-thumb {
+  cursor: pointer;
+}
+
+/* p::before{content:'*';color:black;} */
 /*# sourceMappingURL=main.css.map */
