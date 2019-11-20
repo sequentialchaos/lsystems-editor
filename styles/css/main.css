@@ -1,7 +1,7 @@
 header {
   position: absolute;
   width: 100vw;
-  height: 5vh;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,16 +12,80 @@ header {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
-  background: #d8d8d8;
+  background: #b8ddd7;
 }
 
 h1 {
   font-size: 1.2em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin-left: 1em;
 }
 
 canvas {
   position: absolute;
+  top: 60px;
+  z-index: -99;
+}
+
+label {
+  font-size: 0.8rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #daeeea;
+  padding: 0.15em;
+  text-align: center;
+  margin: auto 0;
+}
+
+.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  padding: 0 0 7px 0;
+  top: 80px;
+  left: 20px;
+  background: rgba(128, 128, 128, 0.6);
+  border-radius: 4px;
+}
+
+.inputs * {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#start,
+#rules {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#angle,
+#length,
+#iterations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#angle-number,
+#length-number {
+  width: 50px;
+}
+
+#iterations-number {
+  width: 35px;
 }
 /*# sourceMappingURL=main.css.map */

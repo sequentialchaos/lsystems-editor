@@ -1,12 +1,9 @@
-$primary-color: rgb(216, 216, 216);
-
-body {
-}
-
+$primary-color: rgb(184, 221, 215);
+$header-height: 60px;
 header {
 	position: absolute;
 	width: 100vw;
-	height: 5vh;
+	height: $header-height;
 
 	display: flex;
 	justify-content: space-between;
@@ -19,10 +16,60 @@ header {
 
 h1 {
 	font-size: 1.2em;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	margin-left: 1em;
 }
 
 canvas {
 	position: absolute;
+	top: $header-height;
+	z-index: -99;
+}
+
+label {
+	font-size: 0.8rem;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background: lighten($primary-color, 10%);
+	padding: 0.15em;
+	text-align: center;
+	margin: auto 0;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	padding: 0 0 7px 0;
+	top: $header-height + 20px;
+	left: 20px;
+	background: rgba(gray, 0.6);
+	border-radius: 4px;
+
+	* {
+		margin-top: 3px;
+		margin-left: 3px;
+		margin-right: 3px;
+	}
+}
+
+#start,
+#rules {
+	display: flex;
+	flex-direction: column;
+}
+
+#angle,
+#length,
+#iterations {
+	display: flex;
+	justify-content: space-between;
+}
+
+#angle-number,
+#length-number {
+	width: 50px;
+}
+
+#iterations-number {
+	width: 35px;
 }
