@@ -19,8 +19,10 @@ let inputNodes = {
 	lengthRange: document.getElementById('length-range'),
 	iterationsNum: document.getElementById('iterations-number'),
 	iterationsRange: document.getElementById('iterations-range'),
-	strokeWeight: document.getElementById('stroke-weight-range'),
-	strokeOpacity: document.getElementById('stroke-opacity-range')
+	strokeWeightNum: document.getElementById('stroke-weight-number'),
+	strokeWeightRange: document.getElementById('stroke-weight-range'),
+	strokeOpacityNum: document.getElementById('stroke-opacity-number'),
+	strokeOpacityRange: document.getElementById('stroke-opacity-range')
 }
 
 /////   Get an input value   /////
@@ -65,8 +67,8 @@ function onAngleNumChange() {
 }
 
 function onAngleRangeChange() {
-	setInputValue('angle', inputNodes.angleRange)
 	inputNodes.angleNum.value = inputNodes.angleRange.value
+	setInputValue('angle')
 }
 
 function onLengthNumChange() {
@@ -75,8 +77,8 @@ function onLengthNumChange() {
 }
 
 function onLengthRangeChange() {
-	setInputValue('length', inputNodes.lengthRange)
 	inputNodes.lengthNum.value = inputNodes.lengthRange.value
+	setInputValue('length')
 }
 
 function onIterationsNumChange() {
@@ -85,15 +87,27 @@ function onIterationsNumChange() {
 }
 
 function onIterationsRangeChange() {
-	setInputValue('iterations', inputNodes.iterationsRange)
 	inputNodes.iterationsNum.value = inputNodes.iterationsRange.value
+	setInputValue('iterations')
 }
 
-function onStrokeWeightChange() {
+function onStrokeWeightNumChange() {
+	setInputValue('strokeWeight')
+	inputNodes.strokeWeightRange.value = inputNodes.strokeWeightNum.value
+}
+
+function onStrokeWeightRangeChange() {
+	inputNodes.strokeWeightNum.value = inputNodes.strokeWeightRange.value
 	setInputValue('strokeWeight')
 }
 
-function onStrokeOpacityChange() {
+function onStrokeOpacityNumChange() {
+	setInputValue('strokeOpacity')
+	inputNodes.strokeOpacityRange.value = inputNodes.strokeOpacityNum.value
+}
+
+function onStrokeOpacityRangeChange() {
+	inputNodes.strokeOpacityNum.value = inputNodes.strokeOpacityRange.value
 	setInputValue('strokeOpacity')
 }
 
@@ -106,5 +120,7 @@ inputNodes.lengthNum.addEventListener('input', onLengthNumChange)
 inputNodes.lengthRange.addEventListener('input', onLengthRangeChange)
 inputNodes.iterationsNum.addEventListener('input', onIterationsNumChange)
 inputNodes.iterationsRange.addEventListener('input', onIterationsRangeChange)
-inputNodes.strokeWeight.addEventListener('input', onStrokeWeightChange)
-inputNodes.strokeOpacity.addEventListener('input', onStrokeOpacityChange)
+inputNodes.strokeWeightNum.addEventListener('input', onStrokeWeightNumChange)
+inputNodes.strokeWeightRange.addEventListener('input', onStrokeWeightRangeChange)
+inputNodes.strokeOpacityNum.addEventListener('input', onStrokeOpacityNumChange)
+inputNodes.strokeOpacityRange.addEventListener('input', onStrokeOpacityRangeChange)
