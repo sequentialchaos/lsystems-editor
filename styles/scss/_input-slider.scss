@@ -5,6 +5,7 @@ input[type=range] {
 	margin: 10px 0;
 	background: $inputs-background;
 	width: 200px;
+	padding-left: 4px;
 }
 
 input[type=range]:focus {

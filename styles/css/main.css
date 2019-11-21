@@ -1,10 +1,12 @@
 input[type=number] {
+  font-size: 1rem;
   -webkit-appearance: textfield;
      -moz-appearance: textfield;
           appearance: textfield;
   border-radius: 5px;
   border-color: #bdaae4;
   padding-left: 2px;
+  width: 3rem;
 }
 
 input[type="number"]:hover,
@@ -17,6 +19,7 @@ input[type=range] {
   margin: 10px 0;
   background: #bdaae4;
   width: 200px;
+  padding-left: 4px;
 }
 
 input[type=range]:focus {
@@ -145,16 +148,24 @@ canvas {
 label {
   font-size: 1.1rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #242e0f;
   background: #dbd1f0;
   padding: 0.15em 0.35em;
   text-align: center;
   margin: auto 0;
   border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 textarea {
   font-size: 1rem;
-  width: 98%;
+  width: 97%;
+  border-radius: 3px;
+  background: #f3f0fa;
+  border-color: #bdaae4;
 }
 
 #start-textarea {
@@ -163,10 +174,6 @@ textarea {
 
 #rules-textarea {
   height: 100px;
-}
-
-input[type="number"] {
-  font-size: 1rem;
 }
 
 .inputs {
@@ -218,21 +225,12 @@ input[type="number"] {
 #angle,
 #length,
 #iterations,
-.input-left {
+.input-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-#angle-number,
-#length-number {
-  width: 3rem;
-}
-
-#iterations-number {
-  width: 2.3rem;
 }
 /*# sourceMappingURL=main.css.map */
