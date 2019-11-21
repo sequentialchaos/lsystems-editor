@@ -112,8 +112,8 @@ function onStrokeOpacityRangeChange() {
 }
 
 /////   Event Listeners   /////
-inputNodes.start.addEventListener('change', onStartChange)
-inputNodes.rules.addEventListener('change', onRulesChange)
+inputNodes.start.addEventListener('input', onStartChange)
+inputNodes.rules.addEventListener('input', onRulesChange)
 inputNodes.angleNum.addEventListener('input', onAngleNumChange)
 inputNodes.angleRange.addEventListener('input', onAngleRangeChange)
 inputNodes.lengthNum.addEventListener('input', onLengthNumChange)
