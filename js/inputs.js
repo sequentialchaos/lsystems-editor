@@ -108,5 +108,3 @@ inputNodes.iterationsNum.addEventListener('input', onIterationsNumChange)
 inputNodes.iterationsRange.addEventListener('input', onIterationsRangeChange)
 inputNodes.strokeWeight.addEventListener('input', onStrokeWeightChange)
 inputNodes.strokeOpacity.addEventListener('input', onStrokeOpacityChange)
-
-// test closing github issue via commit message on a different branch than master.

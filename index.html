@@ -14,6 +14,7 @@
 
 
   <link rel="stylesheet" href="styles/css/reset.css">
+  <link rel="stylesheet" href="styles/css/sliders.css">
   <link rel="stylesheet" href="styles/css/main.css">
 </head>
 
@@ -37,32 +38,40 @@
     </div>
 
     <div id="angle" class="input">
-      <label for="angle-number">angle</label>
-      <input type="number" name="angle-number" id="angle-number">
+      <div class="input-left">
+        <label for="angle-number">angle Δ</label>
+        <input type="number" name="angle-number" id="angle-number">
+      </div>
       <input type="range" name="angle-range" id="angle-range">
     </div>
 
     <div id="length" class="input">
-      <label for="length-number">length</label>
-      <input type="number" name="length-number" id="length-number">
+      <div class="input-left">
+        <label for="length-number">length Δ</label>
+        <input type="number" name="length-number" id="length-number">
+      </div>
       <input type="range" name="length-range" id="length-range">
     </div>
     <div id="iterations" class="input">
-      <label for="iterations-number">iterations</label>
-      <input type="number" name="iterations-number" id="iterations-number">
+      <div class="input-left">
+        <label for="iterations-number">iterations</label>
+        <input type="number" name="iterations-number" id="iterations-number">
+      </div>
       <input type="range" name="iterations" id="iterations-range">
     </div>
-    <div id="stroke-weight">
+    <div id="stroke-weight" class="input">
       <label for="stroke-weight-range">stroke weight</label><input type="range" name="stroke-weight"
-        id="stroke-weight-range" class="input">
+        id="stroke-weight-range">
     </div>
-    <div id="stroke-opacity">
+    <div id="stroke-opacity" class="input">
       <label for="stroke-opacity-range">stroke opacity</label><input type="range" name="stroke-opacity"
-        id="stroke-opacity-range" class="input">
+        id="stroke-opacity-range">
     </div>
 
   </section>
+  <script src="js/L-System.js"></script>
   <script src="js/inputs.js"></script>
+  <script src="js/parse.js"></script>
   <script src="js/sketch.js"></script>
 </body>
 

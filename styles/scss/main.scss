@@ -1,5 +1,7 @@
-$primary-color: rgb(184, 221, 215);
-$header-height: 60px;
+@import 'variables';
+@import "input-number";
+@import "input-slider";
+
 header {
 	position: absolute;
 	width: 100vw;
@@ -15,8 +17,8 @@ header {
 }
 
 h1 {
-	font-size: 1.2em;
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 1.3rem;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-left: 1em;
 }
 
@@ -27,12 +29,30 @@ canvas {
 }
 
 label {
-	font-size: 0.8rem;
+	font-size: 1.1rem;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	background: lighten($primary-color, 10%);
-	padding: 0.15em;
+	padding: 0.15em 0.35em;
 	text-align: center;
 	margin: auto 0;
+	border-radius: 3px;
+}
+
+textarea {
+	font-size: 1rem;
+	width: 98%;
+}
+
+#start-textarea {
+	height: 50px;
+}
+
+#rules-textarea {
+	height: 100px;
+}
+
+input[type="number"] {
+	font-size: 1rem;
 }
 
 .inputs {
@@ -42,7 +62,7 @@ label {
 	padding: 0 0 7px 0;
 	top: $header-height + 20px;
 	left: 20px;
-	background: rgba(gray, 0.6);
+	background: $inputs-background;
 	border-radius: 4px;
 
 	* {
@@ -50,6 +70,12 @@ label {
 		margin-left: 3px;
 		margin-right: 3px;
 	}
+}
+
+.input {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 #start,
@@ -60,16 +86,17 @@ label {
 
 #angle,
 #length,
-#iterations {
+#iterations,
+.input-left {
 	display: flex;
 	justify-content: space-between;
 }
 
 #angle-number,
 #length-number {
-	width: 50px;
+	width: 3rem;
 }
 
 #iterations-number {
-	width: 35px;
+	width: 2.3rem;
 }

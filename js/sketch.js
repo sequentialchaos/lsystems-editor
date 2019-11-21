@@ -1,3 +1,5 @@
+const lsystem = new L_System()
+
 function setup() {
 	createCanvas(innerWidth, innerHeight)
 	noLoop()

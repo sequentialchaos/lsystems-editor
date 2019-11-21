@@ -1,0 +1,11 @@
+input[type=number] {
+	appearance: textfield;
+	border-radius: 5px;
+	border-color: $primary-color;
+	padding-left: 2px;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+	-moz-appearance: number-input;
+}

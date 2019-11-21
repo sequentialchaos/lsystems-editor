@@ -1,3 +1,118 @@
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  border-radius: 5px;
+  border-color: #bdaae4;
+  padding-left: 2px;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  background: #bdaae4;
+  width: 200px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 1px #dbd1f0;
+          box-shadow: 1px 1px 1px #dbd1f0;
+  background: #663cb9;
+  border-radius: 1px;
+  border: 1px solid #825dcb;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-box-shadow: 1px 1px 1px #42473f;
+          box-shadow: 1px 1px 1px #42473f;
+  border: 2px solid #bdaae4;
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: #6d42c2;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #663cb9;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 1px #dbd1f0;
+  background: #663cb9;
+  border-radius: 1px;
+  border: 1px solid #825dcb;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #42473f;
+  border: 2px solid #bdaae4;
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: #6d42c2;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #663cb9;
+  border: 1px solid #825dcb;
+  border-radius: 2px;
+  box-shadow: 0px 1px #dbd1f0;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #663cb9;
+  border: 1px solid #825dcb;
+  border-radius: 2px;
+  box-shadow: 0px 1px #dbd1f0;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #42473f;
+  border: 2px solid #bdaae4;
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: #6d42c2;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #663cb9;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #663cb9;
+}
+
 header {
   position: absolute;
   width: 100vw;
@@ -12,12 +127,12 @@ header {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
-  background: #b8ddd7;
+  background: #bdaae4;
 }
 
 h1 {
-  font-size: 1.2em;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 1em;
 }
 
@@ -28,12 +143,30 @@ canvas {
 }
 
 label {
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background: #daeeea;
-  padding: 0.15em;
+  background: #dbd1f0;
+  padding: 0.15em 0.35em;
   text-align: center;
   margin: auto 0;
+  border-radius: 3px;
+}
+
+textarea {
+  font-size: 1rem;
+  width: 98%;
+}
+
+#start-textarea {
+  height: 50px;
+}
+
+#rules-textarea {
+  height: 100px;
+}
+
+input[type="number"] {
+  font-size: 1rem;
 }
 
 .inputs {
@@ -48,7 +181,7 @@ label {
   padding: 0 0 7px 0;
   top: 80px;
   left: 20px;
-  background: rgba(128, 128, 128, 0.6);
+  background: #bdaae4;
   border-radius: 4px;
 }
 
@@ -56,6 +189,19 @@ label {
   margin-top: 3px;
   margin-left: 3px;
   margin-right: 3px;
+}
+
+.input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #start,
@@ -71,7 +217,8 @@ label {
 
 #angle,
 #length,
-#iterations {
+#iterations,
+.input-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,10 +229,10 @@ label {
 
 #angle-number,
 #length-number {
-  width: 50px;
+  width: 3rem;
 }
 
 #iterations-number {
-  width: 35px;
+  width: 2.3rem;
 }
 /*# sourceMappingURL=main.css.map */
