@@ -9,6 +9,8 @@ let inputs = {
 	strokeOpacity: null
 }
 
+let numericalInputs = [ 'angle', 'length', 'iterations', 'strokeWeight', 'strokeOpacity' ]
+
 /////   Get input DOM elements   /////
 let inputNodes = {
 	start: document.getElementById('start-textarea'),
@@ -27,29 +29,33 @@ let inputNodes = {
 
 /////   Get an input value   /////
 function getInputValue(name) {
-	name = name.toLowerCase()
-	if (name == 'start') {
-		return inputNodes.start.value
-	} else if (name == 'rules') {
-		return inputNodes.rules.value
-	} else if (name == 'angle') {
-		return inputNodes.angleNum.value
-	} else if (name == 'length') {
-		return inputNodes.lengthNum.value
-	} else if (name == 'iterations') {
-		return inputNodes.iterationsNum.value
-	} else if (name == 'strokeweight') {
-		return inputNodes.strokeWeight.value
-	} else if (name == 'strokeopacity') {
-		return inputNodes.strokeOpacity.value
-	} else {
-		return undefined
-	}
+	return inputNodes[name].value
 }
 
 /////   Set an input value   /////
-function setInputValue(name) {
-	inputs[name] = getInputValue(name)
+function setInputValue(name, type) {
+	if (type === undefined) {
+		inputs[name] = getInputValue(name)
+	} else if (type === 'num') {
+		inputs[name] = getInputValue(name + 'Num')
+	} else if (type === 'range') {
+		inputs[name] = getInputValue(name + 'Range')
+	}
+}
+
+/////   Set the other input value to match the changed input value   /////
+function setOtherValue(name, type) {
+	if (type === 'num') {
+		inputNodes[name + 'Range'].value = inputNodes[name + 'Num'].value
+	} else if (type === 'range') {
+		inputNodes[name + 'Num'].value = inputNodes[name + 'Range'].value
+	}
+}
+
+/////   Set all numerical input values    /////
+function setNumericalValues(name, type) {
+	setInputValue(name, type)
+	setOtherValue(name, type)
 }
 
 /////   Change input values   /////
@@ -61,66 +67,21 @@ function onRulesChange() {
 	setInputValue('rules')
 }
 
-function onAngleNumChange() {
-	setInputValue('angle')
-	inputNodes.angleRange.value = inputNodes.angleNum.value
+function onNumericalChange(name, type) {
+	setNumericalValues(name, type)
 }
 
-function onAngleRangeChange() {
-	inputNodes.angleNum.value = inputNodes.angleRange.value
-	setInputValue('angle')
-}
-
-function onLengthNumChange() {
-	setInputValue('length')
-	inputNodes.lengthRange.value = inputNodes.lengthNum.value
-}
-
-function onLengthRangeChange() {
-	inputNodes.lengthNum.value = inputNodes.lengthRange.value
-	setInputValue('length')
-}
-
-function onIterationsNumChange() {
-	setInputValue('iterations')
-	inputNodes.iterationsRange.value = inputNodes.iterationsNum.value
-}
-
-function onIterationsRangeChange() {
-	inputNodes.iterationsNum.value = inputNodes.iterationsRange.value
-	setInputValue('iterations')
-}
-
-function onStrokeWeightNumChange() {
-	setInputValue('strokeWeight')
-	inputNodes.strokeWeightRange.value = inputNodes.strokeWeightNum.value
-}
-
-function onStrokeWeightRangeChange() {
-	inputNodes.strokeWeightNum.value = inputNodes.strokeWeightRange.value
-	setInputValue('strokeWeight')
-}
-
-function onStrokeOpacityNumChange() {
-	setInputValue('strokeOpacity')
-	inputNodes.strokeOpacityRange.value = inputNodes.strokeOpacityNum.value
-}
-
-function onStrokeOpacityRangeChange() {
-	inputNodes.strokeOpacityNum.value = inputNodes.strokeOpacityRange.value
-	setInputValue('strokeOpacity')
+function onNumericalChangeDelegate(name, type) {
+	return function() {
+		onNumericalChange(name, type)
+	}
 }
 
 /////   Event Listeners   /////
 inputNodes.start.addEventListener('input', onStartChange)
 inputNodes.rules.addEventListener('input', onRulesChange)
-inputNodes.angleNum.addEventListener('input', onAngleNumChange)
-inputNodes.angleRange.addEventListener('input', onAngleRangeChange)
-inputNodes.lengthNum.addEventListener('input', onLengthNumChange)
-inputNodes.lengthRange.addEventListener('input', onLengthRangeChange)
-inputNodes.iterationsNum.addEventListener('input', onIterationsNumChange)
-inputNodes.iterationsRange.addEventListener('input', onIterationsRangeChange)
-inputNodes.strokeWeightNum.addEventListener('input', onStrokeWeightNumChange)
-inputNodes.strokeWeightRange.addEventListener('input', onStrokeWeightRangeChange)
-inputNodes.strokeOpacityNum.addEventListener('input', onStrokeOpacityNumChange)
-inputNodes.strokeOpacityRange.addEventListener('input', onStrokeOpacityRangeChange)
+
+numericalInputs.forEach((name) => {
+	inputNodes[name + 'Num'].addEventListener('input', onNumericalChangeDelegate(name, 'num'))
+	inputNodes[name + 'Range'].addEventListener('input', onNumericalChangeDelegate(name, 'range'))
+})
