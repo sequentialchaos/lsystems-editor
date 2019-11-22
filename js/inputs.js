@@ -1,24 +1,14 @@
-/////   Initialize inputs   /////
-let inputs = {
-	start: null,
-	rules: null,
-	angle: null,
-	length: null,
-	iterations: null,
-	strokeWeight: null,
-	strokeOpacity: null
-}
-
-let numericalInputs = [ 'angle', 'length', 'iterations', 'strokeWeight', 'strokeOpacity' ]
+let stringInputs = [ 'start', 'rules' ]
+let numericalInputs = [ 'angleStep', 'lengthStep', 'iterations', 'strokeWeight', 'strokeOpacity' ]
 
 /////   Get input DOM elements   /////
 let inputNodes = {
 	start: document.getElementById('start-textarea'),
 	rules: document.getElementById('rules-textarea'),
-	angleNum: document.getElementById('angle-number'),
-	angleRange: document.getElementById('angle-range'),
-	lengthNum: document.getElementById('length-number'),
-	lengthRange: document.getElementById('length-range'),
+	angleStepNum: document.getElementById('angle-step-number'),
+	angleStepRange: document.getElementById('angle-step-range'),
+	lengthStepNum: document.getElementById('length-step-number'),
+	lengthStepRange: document.getElementById('length-step-range'),
 	iterationsNum: document.getElementById('iterations-number'),
 	iterationsRange: document.getElementById('iterations-range'),
 	strokeWeightNum: document.getElementById('stroke-weight-number'),
@@ -26,6 +16,15 @@ let inputNodes = {
 	strokeOpacityNum: document.getElementById('stroke-opacity-number'),
 	strokeOpacityRange: document.getElementById('stroke-opacity-range')
 }
+
+/////   Initialize raw inputs   /////
+let rawInputs = {}
+stringInputs.forEach((name) => {
+	rawInputs[name] = getInputValue(name)
+})
+numericalInputs.forEach((name) => {
+	rawInputs[name] = getInputValue(name + 'Num')
+})
 
 /////   Get an input value   /////
 function getInputValue(name) {
@@ -35,11 +34,11 @@ function getInputValue(name) {
 /////   Set an input value   /////
 function setInputValue(name, type) {
 	if (type === undefined) {
-		inputs[name] = getInputValue(name)
+		rawInputs[name] = getInputValue(name)
 	} else if (type === 'num') {
-		inputs[name] = getInputValue(name + 'Num')
+		rawInputs[name] = getInputValue(name + 'Num')
 	} else if (type === 'range') {
-		inputs[name] = getInputValue(name + 'Range')
+		rawInputs[name] = getInputValue(name + 'Range')
 	}
 }
 
@@ -57,31 +56,3 @@ function setNumericalValues(name, type) {
 	setInputValue(name, type)
 	setOtherValue(name, type)
 }
-
-/////   Change input values   /////
-function onStartChange() {
-	setInputValue('start')
-}
-
-function onRulesChange() {
-	setInputValue('rules')
-}
-
-function onNumericalChange(name, type) {
-	setNumericalValues(name, type)
-}
-
-function onNumericalChangeDelegate(name, type) {
-	return function() {
-		onNumericalChange(name, type)
-	}
-}
-
-/////   Event Listeners   /////
-inputNodes.start.addEventListener('input', onStartChange)
-inputNodes.rules.addEventListener('input', onRulesChange)
-
-numericalInputs.forEach((name) => {
-	inputNodes[name + 'Num'].addEventListener('input', onNumericalChangeDelegate(name, 'num'))
-	inputNodes[name + 'Range'].addEventListener('input', onNumericalChangeDelegate(name, 'range'))
-})
