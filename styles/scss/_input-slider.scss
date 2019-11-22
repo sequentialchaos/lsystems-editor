@@ -1,10 +1,8 @@
-@import "variables";
-
 input[type=range] {
 	-webkit-appearance: none;
 	margin: 10px 0;
 	background: $inputs-background;
-	width: 180px;
+	width: 150px;
 	padding-left: 4px;
 }
 

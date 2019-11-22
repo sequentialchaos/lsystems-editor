@@ -1,14 +1,32 @@
-const validRuleCharacters = /[A-Zf\+\-\[\]<>|#!]/
+function isStartValid(start) {
+	return /^\s*[A-Zf\+\-\[\]<>|#!]*\s*$/.test(start)
+}
 
 function isRuleValid(rule) {
 	return /^\s*[A-Zf]\s*:\s*[A-Zf\+\-\[\]<>|#!]*\s*$/.test(rule)
 }
-// function isRuleValid(rule) {
-// 	return /^\s*${validRuleCharacters}\s*:\s*${validRuleCharacters}*\s*$/.test(rule)
-// }
 
-function isAxiomValid(axiom_string) {
-	return /^\s*[A-Zf\+\-\[\]<>|#!]*\s*$/.test(axiom_string)
+function rulesObjectToString(rules) {
+	let string = ''
+	for (let [ k, v ] of Object.entries(rules)) {
+		string += `${k}: ${v}\n`
+	}
+	return string
 }
 
-console.log(isRuleValid('F: F+F'))
+function parseRules(rawRules) {
+	let unparsedRules = rawRules.split('\n')
+	let rules = {}
+	for (let unparsedRule of unparsedRules) {
+		if (unparsedRule.trim() !== '') {
+			if (!isRuleValid(unparsedRule)) {
+				break
+			}
+			const parts = unparsedRule.split(':')
+			const name = parts[0].trim()
+			const rule = parts[1].trim()
+			rules[name] = rule
+		}
+	}
+	return rules
+}

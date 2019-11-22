@@ -1,14 +1,9 @@
 class L_System {
-	constructor(
-		{ start = 'F', rules = { F: 'F+F-F' }, angleStep = 90, lengthStep = 1, angleStart = 0, maxIterations = 6 } = {}
-	) {
+	constructor({ start = 'F', rules = { F: 'F+F-F' }, iterations = 6 } = {}) {
 		this._start = start
 		this._rules = rules
-		this._lengthStep = lengthStep
-		this._angleStep = angleStep
-		this._angleStart = angleStart
-		this._maxIterations = maxIterations
-		this._instructions = start
+		this._iterations = iterations
+		this.generateInstructions()
 	}
 
 	set start(newStart) {
@@ -17,20 +12,8 @@ class L_System {
 	set rules(newRules) {
 		this._rules = newRules
 	}
-	set lengthStep(newLengthStep) {
-		this._lengthStep = newLengthStep
-	}
-	set angleStep(newAngleStep) {
-		this._angleStep = newAngleStep
-	}
-	set angleStart(newAngleStart) {
-		this._angleStart = newAngleStart
-	}
-	set maxIterations(newMaxIterations) {
-		this._maxIterations = newMaxIterations
-	}
-	set angleStart(newAngleStart) {
-		return this._angleStart
+	set iterations(newIterations) {
+		this._iterations = newIterations
 	}
 
 	get start() {
@@ -39,28 +22,28 @@ class L_System {
 	get rules() {
 		return this._rules
 	}
-	get lengthStep() {
-		return this._lengthStep
-	}
-	get angleStep() {
-		return this._angleStep
-	}
-	get angleStart() {
-		return this._angleStart
-	}
-	get maxIterations() {
-		return this._maxIterations
+	get iterations() {
+		return this._iterations
 	}
 
-	generate(numIterations) {}
-}
-
-String.prototype.count = function(s) {
-	let c = 0
-	for (let i = 0; i < this.length - s.length + 1; i++) {
-		if (this.substring(i, i + s.length) == s) {
-			c++
+	generateInstructions() {
+		let newInstructions = []
+		for (let char of this.start) {
+			newInstructions.push(char)
 		}
+		for (let i = 0; i < this.iterations; i++) {
+			let nextInstructions = []
+			for (let char of newInstructions) {
+				if (char in this.rules) {
+					for (let ruleChar of this.rules[char]) {
+						nextInstructions.push(ruleChar)
+					}
+				} else {
+					nextInstructions.push(char)
+				}
+			}
+			newInstructions = nextInstructions
+		}
+		this.instructions = newInstructions
 	}
-	return c
 }

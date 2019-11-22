@@ -1,8 +1,13 @@
-$primary-color: hsl(260, 51%, 78%);
+$pretty-blue: hsl(196, 54%, 74%);
+$primary-color: $pretty-blue;
 $inputs-background: $primary-color; //hsla(0, 0%, 78%, 0.8);
+$input-box-background: lighten($primary-color, 16%);
+
+$label-background: lighten($primary-color, 10%);
+$label-text: invert($label-background);
 
 // slider colors
-$slider-track: darken($primary-color, 30%); //rgb(160, 88, 189);
+$slider-track: darken($primary-color, 30%);
 $slider-track-border: lighten($slider-track, 10%);
 $slider-thumb-border: $primary-color;
 $slider-thumb-background: darken($slider-thumb-border, 27%);
