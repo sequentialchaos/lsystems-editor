@@ -6,10 +6,10 @@ function toggleInputs() {
 	let inputsMainClasses = inputsMain.classList
 	if (inputsMainClasses.contains('hide')) {
 		inputsMainClasses.remove('hide')
-		toggleInputsButton.innerHTML = 'hide inputs'
+		toggleInputsButton.innerHTML = 'hide inputs (I)'
 	} else {
 		inputsMainClasses.add('hide')
-		toggleInputsButton.innerHTML = 'show inputs'
+		toggleInputsButton.innerHTML = 'show inputs (I)'
 	}
 }
 
@@ -24,14 +24,14 @@ function toggleFullScreen() {
 		header.classList.add('hide')
 		canvasContainer.classList.add('fullscreen')
 		toggleFullScreenButton.classList.add('top-right')
-		toggleFullScreenButton.innerHTML = 'no full-screen'
+		toggleFullScreenButton.innerHTML = 'no full-screen (ESC)'
 		inputsContainer.classList.add('top-left')
 		isFullScreen = true
 	} else {
 		header.classList.remove('hide')
 		canvasContainer.classList.remove('fullscreen')
 		toggleFullScreenButton.classList.remove('top-right')
-		toggleFullScreenButton.innerHTML = 'go full-screen'
+		toggleFullScreenButton.innerHTML = 'go full-screen (ESC)'
 		inputsContainer.classList.remove('top-left')
 		isFullScreen = false
 	}
@@ -40,3 +40,11 @@ function toggleFullScreen() {
 /////   add event listeners   /////
 toggleInputsButton.addEventListener('click', toggleInputs)
 toggleFullScreenButton.addEventListener('click', toggleFullScreen)
+
+document.addEventListener('keydown', (event) => {
+	if (event.key.toLowerCase() == 'i') {
+		toggleInputs()
+	} else if (event.key == 'Escape') {
+		toggleFullScreen()
+	}
+})
