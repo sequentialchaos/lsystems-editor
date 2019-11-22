@@ -1,31 +1,57 @@
-const lsystem = new L_System({
-	start: 'F',
-	rules: {
-		F: 'F+G',
-		G: 'F-G'
-	},
-	iterations: 9
-})
-const turtle = new Turtle({
-	instructions: lsystem.instructions
+let inputs = parseInputs(rawInputs)
+console.log(inputs)
+
+let lsystem = new L_System({
+	start: inputs.start,
+	rules: inputs.rules,
+	iterations: inputs.iterations
 })
 
+let turtle = new Turtle({
+	instructions: lsystem.instructions,
+	lengthStep: inputs.lengthStep,
+	angleStep: inputs.angleStep,
+	angleStart: 0
+})
+
+let canvas
+let mouse, offset, poffset
 function setup() {
-	createCanvas(innerWidth, innerHeight).parent('canvas-container')
+	canvas = createCanvas(innerWidth, innerHeight).parent('canvas-container').mouseMoved(panCanvas)
 	noLoop()
-	// frameRate(20)
+
+	mouse = createVector()
+	offset = createVector()
+	poffset = createVector()
+
+	turtle.computeLines()
+
+	colorMode(HSB, 1, 1, 1, 1)
 }
 
 function draw() {
-	background(20)
+	background(0)
 	translate(width / 2, height / 2)
-	stroke('white')
+	translate(offset.x, offset.y)
+	strokeColor = color(0.6, 0.8, 1, inputs.strokeOpacity)
+	stroke(strokeColor)
+	strokeWeight(inputs.strokeWeight)
 	fill('white')
-	turtle.computeLines()
-	circle(600, 0, 100)
-	circle(600, 600, 100)
-	// fill(frameCount % 127, frameCount % 50 + 100, frameCount % 100 + 50)
-	// circle(frameCount % (width / 2) + width / 2, frameCount % (height / 2) + height / 2, frameCount % 200 + 50)
+
+	turtle.draw()
+}
+
+function panCanvas() {
+	if (mouseIsPressed) {
+		offset.x = mouseX - mouse.x + poffset.x
+		offset.y = mouseY - mouse.y + poffset.y
+		redraw()
+	}
+}
+
+function mousePressed() {
+	mouse = createVector(mouseX, mouseY)
+	poffset.set(offset)
 }
 
 function windowResized() {

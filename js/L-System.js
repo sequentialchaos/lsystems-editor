@@ -46,4 +46,11 @@ class L_System {
 		}
 		this.instructions = newInstructions
 	}
+
+	update({ start = undefined, rules = undefined, iterations = undefined } = {}) {
+		this.start = start == undefined ? this.start : start
+		this.rules = rules == undefined ? this.rules : rules
+		this.iterations = iterations == undefined ? this.iterations : iterations
+		this.generateInstructions()
+	}
 }

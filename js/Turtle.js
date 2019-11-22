@@ -72,6 +72,7 @@ class Turtle {
 		this.stack = []
 		let x = this.xStart
 		let y = this.yStart
+		this.angle = radians(this.angleStart)
 		let a = radians(this.angleStep)
 		for (let instruction of this.instructions) {
 			if (instruction == '+') {
@@ -121,6 +122,12 @@ class Turtle {
 			} else if (instruction == '<') {
 				this.lengthStep /= line_len_scale
 			}
+		}
+	}
+
+	draw() {
+		for (let { x1, y1, x2, y2 } of this.lines) {
+			line(x1, y1, x2, y2)
 		}
 	}
 }

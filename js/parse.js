@@ -30,3 +30,17 @@ function parseRules(rawRules) {
 	}
 	return rules
 }
+
+function parseInputs(rawInputs) {
+	let inputs = {
+		start: rawInputs.start,
+		rules: parseRules(rawInputs.rules)
+	}
+	for (let numericalInput of numericalInputs) {
+		let value = rawInputs[numericalInput]
+		if (!isNaN(value)) {
+			inputs[numericalInput] = Number(value)
+		}
+	}
+	return inputs
+}
