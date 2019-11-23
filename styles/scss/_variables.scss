@@ -1,5 +1,5 @@
 $pretty-blue: hsl(196, 54%, 74%);
-$primary-color: $pretty-blue;
+$primary-color: hsl(220, 54%, 74%); //$pretty-blue;
 $inputs-background: $primary-color; //hsla(0, 0%, 78%, 0.8);
 $input-box-background: lighten($primary-color, 16%);
 
