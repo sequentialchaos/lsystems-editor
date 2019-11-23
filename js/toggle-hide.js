@@ -1,4 +1,4 @@
-/////   toggle inputs box   /////
+// toggle inputs box
 const inputsMain = document.getElementById('inputs-main')
 const toggleInputsButton = document.getElementById('toggle-inputs')
 
@@ -13,7 +13,7 @@ function toggleInputs() {
 	}
 }
 
-/////   toggle full-screen   /////
+// toggle full-screen
 let isFullScreen = false
 const header = document.getElementById('header-nav')
 const canvasContainer = document.getElementById('canvas-container')
@@ -41,7 +41,28 @@ function toggleFullScreen() {
 	}
 }
 
-/////   add event listeners   /////
+// toggle UI
+let uiToggledOn = true
+const toggleUiButton = document.getElementById('toggleUI-button')
+const uiNodes = [ inputsContainer, centerButtonContainer, toggleFullScreenButton, toggleUiButton ]
+function toggleUI() {
+	uiNodes.forEach((node) => {
+		if (uiToggledOn) {
+			// UI is on, turn it off!
+			if (!node.classList.contains('hide')) {
+				node.classList.add('hide')
+			}
+		} else {
+			// UI is off, turn it on!
+			if (node.classList.contains('hide')) {
+				node.classList.remove('hide')
+			}
+		}
+	})
+	uiToggledOn = !uiToggledOn
+}
+
+// add event listeners
 toggleInputsButton.addEventListener('click', toggleInputs)
 toggleFullScreenButton.addEventListener('click', toggleFullScreen)
 
@@ -50,5 +71,7 @@ document.addEventListener('keydown', (event) => {
 		toggleInputs()
 	} else if (event.key == 'Escape') {
 		toggleFullScreen()
+	} else if (event.key == 'q') {
+		toggleUI()
 	}
 })

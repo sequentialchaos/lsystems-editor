@@ -135,12 +135,36 @@ textarea {
 	}
 }
 
+#toggleUI-button-container {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#toggleUI-button {
+	font-size: 1rem;
+	font-family: 'Courier New', Courier, monospace;
+	color: $primary-color;
+	user-select: none;
+	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.06);
+		background: darken($primary-color, 60%);
+	}
+}
+
 #toggle-inputs {
 	margin-top: 0;
 	padding-right: 3px;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 1rem;
 	color: darken($primary-color, 60%);
+	user-select: none;
 	cursor: pointer;
 
 	&:hover {

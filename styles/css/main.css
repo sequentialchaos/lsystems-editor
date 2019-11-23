@@ -283,12 +283,49 @@ textarea {
   background: #101d37;
 }
 
+#toggleUI-button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#toggleUI-button {
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #99b1e1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+#toggleUI-button:hover {
+  -webkit-transform: scale(1.06);
+          transform: scale(1.06);
+  background: #101d37;
+}
+
 #toggle-inputs {
   margin-top: 0;
   padding-right: 3px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   color: #101d37;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 
