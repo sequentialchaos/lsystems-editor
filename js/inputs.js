@@ -1,7 +1,7 @@
 let stringInputs = [ 'start', 'rules' ]
 let numericalInputs = [ 'angleStep', 'lengthStep', 'iterations', 'strokeWeight', 'strokeOpacity' ]
 
-/////   Get input DOM elements   /////
+// Get input DOM elements
 let inputNodes = {
 	start: document.getElementById('start-textarea'),
 	rules: document.getElementById('rules-textarea'),
@@ -17,21 +17,25 @@ let inputNodes = {
 	strokeOpacityRange: document.getElementById('stroke-opacity-range')
 }
 
-/////   Initialize raw inputs   /////
+// Initialize inputs
 let rawInputs = {}
-stringInputs.forEach((name) => {
-	rawInputs[name] = getInputValue(name)
-})
-numericalInputs.forEach((name) => {
-	rawInputs[name] = getInputValue(name + 'Num')
-})
+function setRawInputs() {
+	stringInputs.forEach((name) => {
+		rawInputs[name] = getInputValue(name)
+	})
+	numericalInputs.forEach((name) => {
+		rawInputs[name] = getInputValue(name + 'Num')
+	})
+}
+setRawInputs()
+let inputs = parseInputs(rawInputs)
 
-/////   Get an input value   /////
+// Get an input value
 function getInputValue(name) {
 	return inputNodes[name].value
 }
 
-/////   Set an input value   /////
+// Set an input value
 function setInputValue(name, type) {
 	if (type === undefined) {
 		rawInputs[name] = getInputValue(name)
@@ -42,7 +46,7 @@ function setInputValue(name, type) {
 	}
 }
 
-/////   Set the other input value to match the changed input value   /////
+// Set the other input value to match the changed input value
 function setOtherValue(name, type) {
 	if (type === 'num') {
 		inputNodes[name + 'Range'].value = inputNodes[name + 'Num'].value
@@ -51,8 +55,23 @@ function setOtherValue(name, type) {
 	}
 }
 
-/////   Set all numerical input values    /////
+// Set all numerical input values
 function setNumericalValues(name, type) {
 	setInputValue(name, type)
 	setOtherValue(name, type)
+}
+
+// Set DOM element values to pre-determined input values
+function setDOMvalues(inputs) {
+	for (let name of stringInputs) {
+		if (name == 'rules') {
+			inputNodes[name].innerHTML = rulesObjectToString(inputs[name])
+		} else {
+			inputNodes[name].innerHTML = inputs[name]
+		}
+	}
+	for (let name of numericalInputs) {
+		inputNodes[name + 'Num'].value = inputs[name]
+		inputNodes[name + 'Range'].value = inputs[name]
+	}
 }
