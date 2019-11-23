@@ -68,13 +68,14 @@ class Turtle {
 	}
 
 	computeLines(show = true) {
+		this.prevLines = this.lines
 		this.lines = []
 		this.stack = []
 		let x = this.xStart
 		let y = this.yStart
 		this.angle = radians(this.angleStart)
 		let a = radians(this.angleStep)
-		for (let instruction of this.instructions) {
+		this.instructions.forEach((instruction, i) => {
 			if (instruction == '+') {
 				this.angle -= a
 			} else if (instruction == '-') {
@@ -85,12 +86,16 @@ class Turtle {
 				if (show) {
 					line(x, y, x2, y2)
 				}
-				this.lines.push({
+				let newLine = {
 					x1: x,
 					y1: y,
 					x2: x2,
 					y2: y2
-				})
+				}
+				if (this.prevLines[i] && this.prevLines[i].strokeColor) {
+					newLine.strokeColor = this.prevLines[i].strokeColor
+				}
+				this.lines.push(newLine)
 				x = x2
 				y = y2
 			} else if (instruction == 'f') {
@@ -122,12 +127,45 @@ class Turtle {
 			} else if (instruction == '<') {
 				this.lengthStep /= line_len_scale
 			}
-		}
+		})
 	}
 
 	draw() {
-		for (let { x1, y1, x2, y2 } of this.lines) {
+		for (let { x1, y1, x2, y2, strokeColor } of this.lines) {
+			push()
+			if (strokeColor != undefined) {
+				stroke(strokeColor)
+			}
 			line(x1, y1, x2, y2)
+			pop()
+		}
+	}
+
+	colorRectangleOfLines(x, y, w, h, strokeColor) {
+		x -= 1
+		y -= 1
+		for (let line of this.lines) {
+			let { x1, y1, x2, y2 } = line
+			if ((x1 >= x && x1 <= x + w) || (x2 >= x && x2 <= x + w)) {
+				if ((y1 >= y && y1 <= y + h) || (y2 >= y && y2 <= y + h)) {
+					line.strokeColor = strokeColor
+				}
+			}
+		}
+	}
+
+	centerPoint() {
+		let sums = {
+			x: 0,
+			y: 0
+		}
+		for (let { x1, y1 } of this.lines) {
+			sums.x += x1
+			sums.y += y1
+		}
+		return {
+			x: sums.x / this.lines.length,
+			y: sums.y / this.lines.length
 		}
 	}
 }

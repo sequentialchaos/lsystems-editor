@@ -18,21 +18,25 @@ let isFullScreen = false
 const header = document.getElementById('header-nav')
 const canvasContainer = document.getElementById('canvas-container')
 const inputsContainer = document.getElementById('inputs-container')
+const centerButtonContainer = document.getElementById('center-button-container')
 const toggleFullScreenButton = document.getElementById('toggle-fullscreen')
 function toggleFullScreen() {
 	if (!isFullScreen) {
 		header.classList.add('hide')
 		canvasContainer.classList.add('fullscreen')
-		toggleFullScreenButton.classList.add('top-right')
+		toggleFullScreenButton.classList.add('top')
 		toggleFullScreenButton.innerHTML = 'no full-screen (ESC)'
-		inputsContainer.classList.add('top-left')
+		inputsContainer.classList.add('top')
+		centerButtonContainer.classList.add('top')
 		isFullScreen = true
 	} else {
 		header.classList.remove('hide')
 		canvasContainer.classList.remove('fullscreen')
-		toggleFullScreenButton.classList.remove('top-right')
+		toggleFullScreenButton.classList.remove('top')
 		toggleFullScreenButton.innerHTML = 'go full-screen (ESC)'
-		inputsContainer.classList.remove('top-left')
+		inputsContainer.classList.remove('top')
+		centerButtonContainer.classList.remove('top')
+
 		isFullScreen = false
 	}
 }

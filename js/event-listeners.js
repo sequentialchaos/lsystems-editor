@@ -56,8 +56,8 @@ function updateDelegate(name) {
 		update(name)
 	}
 }
-let inputNames = [ 'start', 'rules', 'angleStep', 'lengthStep', 'iterations', 'strokeWeight', 'strokeOpacity' ]
-for (let name of inputNames) {
+
+for (let name of Object.keys(inputs)) {
 	if (name == 'start' || name == 'rules') {
 		inputNodes[name].addEventListener('input', updateDelegate(name))
 	} else {
@@ -66,54 +66,7 @@ for (let name of inputNames) {
 	}
 }
 
-// inputNodes.start.addEventListener('input', function() {
-// 	update('start')
-// })
-
-// inputNodes.rules.addEventListener('input', function() {
-// 	update('rules')
-// })
-
-// inputNodes.iterationsNum.addEventListener('input', function() {
-// 	update('iterations')
-// })
-
-// inputNodes.iterationsRange.addEventListener('input', function() {
-// 	update('iterations')
-// })
-
-// inputNodes.angleStepNum.addEventListener('input', function() {
-// 	update('angleStep')
-// })
-
-// inputNodes.angleStepRange.addEventListener('input', function() {
-// 	update('angleStep')
-// })
-
-// inputNodes.lengthStepNum.addEventListener('input', function() {
-// 	update('lengthStep')
-// })
-
-// inputNodes.lengthStepRange.addEventListener('input', function() {
-// 	update('lengthStep')
-// })
-
-// inputNodes.strokeWeightNum.addEventListener('input', function() {
-// 	inputs = parseInputs(rawInputs)
-// 	redraw()
-// })
-
-// inputNodes.strokeWeightRange.addEventListener('input', function() {
-// 	inputs = parseInputs(rawInputs)
-// 	redraw()
-// })
-
-// inputNodes.strokeOpacityNum.addEventListener('input', function() {
-// 	inputs = parseInputs(rawInputs)
-// 	redraw()
-// })
-
-// inputNodes.strokeOpacityRange.addEventListener('input', function() {
-// 	inputs = parseInputs(rawInputs)
-// 	redraw()
-// })
+document.getElementById('center-button').addEventListener('click', function() {
+	centerLines = true
+	redraw()
+})

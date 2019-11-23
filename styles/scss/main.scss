@@ -108,6 +108,33 @@ textarea {
 	}
 }
 
+#center-button-container {
+	position: absolute;
+	top: $header-height + 10px;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#center-button {
+	// position: absolute;
+	// top: $header-height + 10px;
+	// left: 50vw;
+	font-size: 1rem;
+	font-family: 'Courier New', Courier, monospace;
+	color: $primary-color;
+	user-select: none;
+	// text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.06);
+		background: darken($primary-color, 60%);
+	}
+}
+
 #toggle-inputs {
 	margin-top: 0;
 	padding-right: 3px;
@@ -117,7 +144,7 @@ textarea {
 	cursor: pointer;
 
 	&:hover {
-		transform: scale(1.1);
+		transform: scale(1.05);
 		background: darken($primary-color, 3%);
 	}
 }
@@ -129,15 +156,9 @@ textarea {
 	height: 100% !important;
 }
 
-.top-left {
+.top {
 	position: absolute;
 	top: 10px !important;
-	left: 10px !important;
-}
-
-.top-right {
-	top: 10px !important;
-	right: 10px !important;
 }
 
 .hide {
