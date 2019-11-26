@@ -65,9 +65,9 @@ function setNumericalValues(name, type) {
 function setDOMvalues(inputs) {
 	for (let name of stringInputs) {
 		if (name == 'rules') {
-			inputNodes[name].innerHTML = rulesObjectToString(inputs[name])
+			inputNodes[name].value = rulesObjectToString(inputs[name])
 		} else {
-			inputNodes[name].innerHTML = inputs[name]
+			inputNodes[name].value = inputs[name]
 		}
 	}
 	for (let name of numericalInputs) {
