@@ -23,6 +23,7 @@
 
 
 ### Todo
+* alphabet used in editor
 * examples
 * gifs
 * how to contribute
