@@ -24,7 +24,7 @@ The symbols in the following table represent the alphabet used by this L-Systems
 | Symbol(s)  | Description                                                                    |
 | ---------- | ------------------------------------------------------------------------------ |
 | F, G, H, I | Draw a line of a given line length δ and move forward to the end of that line. |
-| f, g, h, i | Move forward a given line length δ without drawing a line.                     |
+| f, g, h, i | Move forward by a given line length δ without drawing a line.                     |
 | +          | Rotate counter-clockwise by a given angle step ϴ.                              |
 | -          | Rotate clockwise by a given angle step ϴ.                                      |
 | [          | Push current drawing state to the stack.                                       |
