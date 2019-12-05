@@ -21,6 +21,7 @@ h1 {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-left: 1em;
 	letter-spacing: -0.07rem;
+	color: darken($primary-color, 60%);
 }
 
 #canvas-container {
@@ -36,7 +37,7 @@ canvas {
 }
 
 label {
-	font-size: 1.15rem;
+	font-size: 1.02rem;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-weight: bold;
 	color: $label-text;
@@ -149,6 +150,7 @@ textarea {
 	font-size: 1rem;
 	font-family: 'Courier New', Courier, monospace;
 	color: $primary-color;
+	background: darken($primary-color, 80%);
 	user-select: none;
 	cursor: pointer;
 
