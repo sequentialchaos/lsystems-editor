@@ -130,14 +130,17 @@ class Turtle {
 		})
 	}
 
-	draw() {
+	draw({ name = 'rainbow', alpha = 1 } = {}) {
+		let index = 0
 		for (let { x1, y1, x2, y2, strokeColor } of this.lines) {
 			push()
 			if (strokeColor != undefined) {
 				stroke(strokeColor)
 			}
+			colorMap({ name: name, index: index, length: this.lines.length, alpha: alpha })
 			line(x1, y1, x2, y2)
 			pop()
+			index++
 		}
 	}
 

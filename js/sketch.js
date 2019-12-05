@@ -31,7 +31,7 @@ function draw() {
 	strokeWeight(inputs.strokeWeight)
 	fill('white')
 
-	turtle.draw()
+	turtle.draw({ alpha: inputs.strokeOpacity })
 }
 
 function panCanvas() {
@@ -67,5 +67,3 @@ function keyPressed() {
 		redraw()
 	}
 }
-
-// TODO: move this to different file
