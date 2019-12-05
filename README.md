@@ -15,6 +15,20 @@
    * A *rule* has two strings, known as the *predecessor* and the *successor*.
    * When a rule is applied to an L-System during an iteration, the string of symbols in the predecessor is replaced, in the L-System's *current instructions*, by the string of symbols in the successor. 
    * Also known as *production rules* or just *productions*.
+4. **Instructions**: The current state of the L-System. 
+
+### Alphabet
+The symbols in the following table represent the alphabet used by this L-Systems Editor:
+
+| Symbol(s)  | Description                                                                    |
+| ---------- | ------------------------------------------------------------------------------ |
+| F, G, H, I | Draw a line of a given line length δ and move forward to the end of that line. |
+| f, g, h, i | Move forward a given line length δ without drawing a line.                     |
+| +          | Rotate counter-clockwise by a given angle step ϴ.                              |
+| -          | Rotate clockwise by a given angle step ϴ.                                      |
+| [          | Push current drawing state to the stack.                                       |
+| ]          | Pop current drawing state from the stack.                                      |
+| [A-E, J-Z] | No drawing action, only used for rule substitutions.                           |
 
 
 ### Other notes:
@@ -23,7 +37,7 @@
 
 
 ### Todo
-* alphabet used in editor
+* complete alphabet used in editor
 * examples
 * gifs
 * how to contribute
