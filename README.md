@@ -32,9 +32,21 @@ The symbols in the following table represent the alphabet used by this L-Systems
 | [A-E, J-Z] | No drawing action, only used for rule substitutions.                           |
 
 
-### Other notes:
+### Other notes
 * L-Systems get their name from their creator, Aristid Lindenmayer, who introduced "Lindenmayer Systems" to describe plant cell behavior and model plant growth processes.
 * L-Systems are often used to generate self-similar fractals.
+
+### Useful links
+**Learn more about L-Systems**
+- [Paul Bourke's L-System User Notes](http://paulbourke.net/fractals/lsys/)
+- [L-Systems on Wikipedia](https://en.wikipedia.org/wiki/L-system)
+- [L-Systems at Wolfram MathWorld](http://mathworld.wolfram.com/LindenmayerSystem.html)
+- [Morphocode's Intro to L-Systems](https://morphocode.com/intro-to-l-systems/)
+
+**Other Editors**
+- [L-Systems Turtle Graphics Renderer](http://www.kevs3d.co.uk/dev/lsystems/), by Kevin Roast
+- [L-Systems Editor](https://anuken.github.io/lsystems/), by [Anuken](https://github.com/Anuken) ([source](https://github.com/Anuken/L-Systems))
+- [L-Systems Demo](https://dkandalov.github.io/lsystem/), by [dkandalov](https://github.com/dkandalov) ([source](https://github.com/dkandalov/lsystem-js))
 
 
 ### Todo
