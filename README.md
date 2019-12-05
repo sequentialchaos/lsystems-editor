@@ -30,6 +30,7 @@ The symbols in the following table represent the alphabet used by this L-Systems
 | [          | Push current drawing state to the stack.                                       |
 | ]          | Pop current drawing state from the stack.                                      |
 | [A-E, J-Z] | No drawing action, only used for rule substitutions.                           |
+| [a-e, j-z] | No drawing action, only used for rule substitutions.                           |
 
 
 ### Other notes
