@@ -50,7 +50,7 @@ The symbols in the following table represent the alphabet used by this L-Systems
 - [L-Systems Demo](https://dkandalov.github.io/lsystem/), by [dkandalov](https://github.com/dkandalov) ([source](https://github.com/dkandalov/lsystem-js))
 
 
-### Todo
+### Todo for README
 * complete alphabet used in editor
 * examples
 * gifs
